@@ -168,7 +168,7 @@ bool move(int dir, vector<int>& pos, int cnt) {
 	}
 }
 
-void bo( int cnt, vector<int>& pos) {
+void sim( int cnt, vector<int>& pos) {
 	if (cnt + 1 > 10) {
 		return;
 	}
@@ -178,7 +178,7 @@ void bo( int cnt, vector<int>& pos) {
 		p.clear();
 		p.assign(pos.begin(),pos.end());
 		if (move(i, p, cnt+1)) {
-			bo(cnt + 1, p);
+			sim(cnt + 1, p);
 		}
 	}
 }
@@ -207,7 +207,7 @@ int main(void) {
 		}
 	}
 
-	bo(0, pos);
+	sim(0, pos);
 	if (m_min == INT_MAX) {
 		cout << -1;
 	}
